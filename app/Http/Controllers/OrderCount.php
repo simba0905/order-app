@@ -42,12 +42,12 @@ class OrderCount extends Controller
 	    return $result->count;
     }
 
-    public function getOrderCounts($ip ='141.105.64.66')
+    public function getOrderCounts($ip)
     {
     	$country = $this->getCountry($ip);
 
-    	$country = 'United States';
-    	
+    	if (!$country) return false;
+
     	// Gets a list of orders.
 	    $results = $this->shopify->call([ 
 	        'METHOD'    => 'GET', 
