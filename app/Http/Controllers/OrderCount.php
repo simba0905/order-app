@@ -42,8 +42,9 @@ class OrderCount extends Controller
 	    return $result->count;
     }
 
-    public function getOrderCounts($ip)
+    public function getOrderCounts(Request $request)
     {
+    	$ip = $request->ip;
     	$country = $this->getCountry($ip);
 
     	if (!$country) return false;

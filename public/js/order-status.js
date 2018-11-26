@@ -24,7 +24,9 @@ $(document).ready(function() {
   $.ajax({
     url: "https://order-sh.herokuapp.com/getOrderCounts",
     type: "get",
-    data: myIp ,
+    data: {
+    	ip: myIp
+    } ,
     success: function (response) {
       // you will get response from your php page (what you echo or print)
       $wrapper.html(response);
