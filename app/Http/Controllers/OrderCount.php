@@ -14,10 +14,10 @@ class OrderCount extends Controller
 	public function __construct()
     {
         $this->shopify = \App::make('ShopifyAPI', [ 
-	        'API_KEY'       => '2a4be46c3f02a1e32bbef4a3e09d2db3', 
-			'API_SECRET'    => '069ea560a3ca8d5f2728e22c5562ad26', 
-			'SHOP_DOMAIN'   => 'plug-chemx.myshopify.com', 
-			'ACCESS_TOKEN'  => 'e67e64de9397adf2942cd4fd363c9e76' 
+	        'API_KEY'       => env('SHOPIFY_API_KEY'),
+			'API_SECRET'    => env('SHOPIFY_API_SECRET'),
+			'SHOP_DOMAIN'   => env('SHOPIFY_SHOP_DOMAIN'),
+			'ACCESS_TOKEN'  => env('SHOPIFY_ACCESS_TOKEN')
 	    ]);
     }
 
@@ -52,11 +52,6 @@ class OrderCount extends Controller
 	    $results = $this->shopify->call([ 
 	        'METHOD'    => 'GET', 
 	        'URL'       => '/admin/orders.json'
-	    ]);
-
-	    $order = $this->shopify->call([
-	    	'METHOD'    => 'GET', 
-	        'URL'       => '/admin/orders/717764624426.json'
 	    ]);
 
 	    // Order Count based on this country.
