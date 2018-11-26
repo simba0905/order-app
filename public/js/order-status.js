@@ -31,10 +31,10 @@ $(document).ready(function() {
                 html += "<p>There are no orders from your country yet.</p>";
                 html += "<p>Why won't you buy somthing and be the first? :)</p>";
             } else {
-                var order_percent = data.order_count / data.total_order * 100;
+                var order_percent = parseFloat(data.order_count / data.total_order * 100).toFixed(2);
 
                 html += '<h2>' + data.country + '</h2>';
-                html += '<p>Your country orders count: ' + data.order_count + '(' + order_percent + ' % of all orders )' + '</p>';
+                html += '<p>Your country orders count: ' + data.order_count + ' ( ' + order_percent + ' % of all orders )' + '</p>';
                 html += '<p>Total orders count: ' + data.total_order + '</p>';
             }
 
