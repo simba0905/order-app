@@ -64,11 +64,11 @@ class OrderCount extends Controller
 	    }
 
 	    $data = [
-	    	'country'		: $country,
-	    	'ip'	 		: $ip,
-	    	'order_count'	: $order_count,
-	    	'total_order'	: count($results->orders)
-	    ]
+	    	'country'		=> $country,
+	    	'ip'	 		=> $ip,
+	    	'order_count'	=> $order_count,
+	    	'total_order'	=> count($results->orders)
+	    ];
 
 	    return $data;
     }
