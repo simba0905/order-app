@@ -50,7 +50,7 @@ class OrderCount extends Controller
     	if (!$country) return false;
 
     	$total_order = $this->getTotalOrderCounts();
-    	$limit = 50;
+    	$limit = 250;
     	$page = 1;
     	
 	    // Order Count based on this country.
