@@ -56,14 +56,20 @@ class OrderCount extends Controller
 	    ]);
 
 	    // Order Count based on this country.
-	    $count = 0;
+	    $order_count = 0;
 	    foreach($results->orders as $result) {
 	    	if ($country == $result->customer->default_address->country) {
-	    		$count++;
+	    		$order_count++;
 	    	}
 	    }
+	    
+	    $data = [
+	    	'country'		: $country,
+	    	'ip'	 		: $ip,
+	    	'order_count'	: $order_count,
+	    ]
 
-	    return $count;
+	    return $data;
     }
 	
 }
